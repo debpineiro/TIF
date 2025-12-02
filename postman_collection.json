@@ -1,0 +1,11 @@
+{
+  "info": {
+    "name": "TIF API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    { "name": "List products", "request": { "method": "GET", "url": "http://localhost:8080/api/products" } },
+    { "name": "Create product", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "body": { "mode":"raw", "raw": "{ \"name\": \"Producto A\", \"price\": 10.0, \"stock\": 5 }"}, "url": "http://localhost:8080/api/products" } },
+    { "name": "Create order", "request": { "method": "POST", "header": [{"key":"Content-Type","value":"application/json"}], "body": { "mode":"raw", "raw": "{ \"customer\": { \"id\": 1 }, \"product\": { \"id\": 1 }, \"quantity\": 1 }"}, "url": "http://localhost:8080/api/orders" } }
+  ]
+}

@@ -1,0 +1,34 @@
+package com.example.tif.model;
+
+import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+/**
+ * Entidad Categoria: representa una categoría de productos.
+ */
+@Entity
+public class Categoria {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+
+    @OneToMany(mappedBy = "categoria")
+    @JsonBackReference
+    private List<Producto> productos = new ArrayList<>();
+
+    public Categoria() {}
+
+    public Categoria(String name) { this.name = name; }
+
+    // Getters y setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public List<Producto> getProductos() { return productos; }
+    public void setProductos(List<Producto> productos) { this.productos = productos; }
+}
